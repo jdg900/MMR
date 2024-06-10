@@ -155,8 +155,8 @@ def main(args):
         conv = conversation_lib.conv_templates[args.conv_type].copy()
         conv.messages = []
 
-        # prompt = input("Please input your prompt: ")
-        prompt = "To maintain a computer at an elevated position for easier interaction, which part of the furniture aids in this purpose?, Please output segmentation mask."
+        prompt = input("Please input your prompt: ")
+        #prompt = "To maintain a computer at an elevated position for easier interaction, which part of the furniture aids in this purpose?, Please output segmentation mask."
         prompt = DEFAULT_IMAGE_TOKEN + "\n" + prompt
         if args.use_mm_start_end:
             replace_token = (
@@ -168,8 +168,8 @@ def main(args):
         conv.append_message(conv.roles[1], "")
         prompt = conv.get_prompt()
 
-        # image_path = input("Please input the image path: ")
-        image_path = "/SSD2/guest/jdgon/RSLLM/dataset/refer_seg/images/mscoco/images/train2017/000000561411.jpg"
+        image_path = input("Please input the image path: ")
+        #image_path = "/SSD2/guest/jdgon/RSLLM/dataset/refer_seg/images/mscoco/images/train2017/000000561411.jpg"
         if not os.path.exists(image_path):
             print("File not found in {}".format(image_path))
             continue
