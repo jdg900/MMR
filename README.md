@@ -34,7 +34,36 @@ MMR/
 ```
 
 ### Json Format 
-
+```
+ data:
+    {
+        `file_name': str, a file name of the image,
+        `height': int, height of the image,
+        `width': int, width of the image,
+        `image_id': int, id of the image,
+        `not_exhaustive_category_ids': List[int], list of category ids that don't have all of their instances marked exhaustively,
+        `neg_category_ids': List[int], list of category ids that were verified as not present in the image,
+        `coco_url': str, image URL,
+        `questions': List[str], the complex and implicit questions about the objects and parts within an image,
+        
+        `annotations':
+            {
+            `bbox': List[float], bounding box of the object or part,
+            `segmentation': 
+                {
+                `size': List[int], the size of the image,
+                `counts': RLE format, segmentation binary mask information,
+                }
+            `image_id': int, id of the image,
+            `category_name': str, category_name of the object or part,
+            `category_id': int, category_id,
+            `sorted_category_id': int, sorted id in ascending order,
+            }
+        `answers': List[dicts], the annotations corresponding to the questions,
+        `text_answers': List[str], the text answers to the questions,
+        `raw_answers': List[str], the raw answers from GPT API to the questions,
+    }
+```
 
 
 ## M<sup>2</sup>SA Model
@@ -221,10 +250,10 @@ Please input the image path: test_imgs/example.jpg
 
 | Methods                        | val (gIoU) | val (cIoU) | Obj (gIoU) | Obj (cIoU) | Part (gIoU) | Part (cIoU) | Obj & Part (gIoU) | Obj & Part (cIoU) |
 |--------------------------------|----------|----------|----------|----------|-----------|-----------|-----------------|-----------------|
-| LISA-7B \cite{lai2023lisa}     | 13.8     | 18.3     | 23.5     | 25.1     | 6.6       | 7.9       | 14.5            | 17.9            |
+| LISA-7B    | 13.8     | 18.3     | 23.5     | 25.1     | 6.6       | 7.9       | 14.5            | 17.9            |
 | LISA-7B<sub>tr</sub>           | 19.4     | 31.6     | 34.7     | 41.8     | 8.0       | 13.1      | 19.5            | 27.1            |
 | **M<sup>2</sup>SA-7B**         | **27.9** | **48.5** | **41.0** | **55.6** | **13.5**  | **27.0**  | **31.0**        | **46.8**        |
-| LISA-Llama2-13B \cite{lai2023lisa} | 15.4     | 20.0     | 26.1     | 27.9     | 7.4       | 8.4       | 16.1            | 19.8            |
+| LISA-Llama2-13B  | 15.4     | 20.0     | 26.1     | 27.9     | 7.4       | 8.4       | 16.1            | 19.8            |
 | LISA-Llama2-13B<sub>tr</sub>   | 22.3     | 33.4     | 40.2     | 45.2     | 10.7      | 16.4      | 23.0            | 29.2            |
 | **M<sup>2</sup>SA-Llama2-13B** | **28.4** | **49.1** | **42.3** | **57.6** | **13.6**  | **27.2**  | **31.6**        | **47.6**        |
 
@@ -234,15 +263,15 @@ Please input the image path: test_imgs/example.jpg
 
 | Methods                                | val-Part | val-Obj & Part | testA-Part | testA-Obj & Part | testB-Part | testB-Obj & Part |
 |----------------------------------------|----------|----------------|------------|------------------|------------|------------------|
-| SeqTR \cite{zhu2022seqtr}              | 13.9     | 28.2           | 12.1       | 22.8             | 18.1       | 34.7             |
-| CRIS \cite{wang2022cris}               | 10.6     | 25.4           | 10.1       | 21.2             | 12.9       | 30.0             |
-| LAVT \cite{yang2022lavt}               | 15.3     | 29.9           | 13.2       | 24.4             | 18.7       | 35.5             |
-| X-Decoder \cite{zou2023generalized}    | 16.2     | 29.5           | 13.6       | 23.6             | 20.3       | 33.8             |
-| SEEM \cite{zou2024segment}             | 16.1     | 29.4           | 13.6       | 23.4             | 20.4       | 33.9             |
-| UniRES \cite{wang2023unveiling}        | 19.6     | 34.3           | 16.4       | 27.8             | 25.2       | **41.7**         |
-| LISA-7B \cite{lai2023lisa}             | 21.3     | 34.3           | 18.5       | 28.6             | 25.7       | 40.1             |
+| SeqTR             | 13.9     | 28.2           | 12.1       | 22.8             | 18.1       | 34.7             |
+| CRIS              | 10.6     | 25.4           | 10.1       | 21.2             | 12.9       | 30.0             |
+| LAVT                | 15.3     | 29.9           | 13.2       | 24.4             | 18.7       | 35.5             |
+| X-Decoder     | 16.2     | 29.5           | 13.6       | 23.6             | 20.3       | 33.8             |
+| SEEM          | 16.1     | 29.4           | 13.6       | 23.4             | 20.4       | 33.9             |
+| UniRES       | 19.6     | 34.3           | 16.4       | 27.8             | 25.2       | **41.7**         |
+| LISA-7B              | 21.3     | 34.3           | 18.5       | 28.6             | 25.7       | 40.1             |
 | **M<sup>2</sup>SA-7B**                 | **22.4** | **35.5**       | **19.9**   | **30.1**         | **27.1**   | 41.4             |
-| LISA-Llama2-13B \cite{lai2023lisa}     | 22.1     | 35.2           | 19.4       | 29.7             | 27.2       | 41.6             |
+| LISA-Llama2-13B     | 22.1     | 35.2           | 19.4       | 29.7             | 27.2       | 41.6             |
 | **M<sup>2</sup>SA-Llama2-13B**         | **24.5** | **37.3**       | **21.9**   | **31.9**         | **28.5**   | **42.7**         |
 
 
