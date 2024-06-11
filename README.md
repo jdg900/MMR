@@ -229,7 +229,7 @@ CUDA_VISIBLE_DEVICES=0 python chat.py --version="jdg900/M2SA-7B" --precision="bf
 CUDA_VISIBLE_DEVICES=0 python chat.py --version="jdg900/M2SA-7B" --precision="fp16"
 ```
 
-To use 8bit or 4bit data type for inference (this enables running 13B model on a single 24G or 12G GPU at some cost of generation quality):
+To use 8bit or 4bit data type for inference:
 ```
 CUDA_VISIBLE_DEVICES=0 python chat.py --version="jdg900/M2SA-7B" --precision="bf16" --load_in_8bit
 CUDA_VISIBLE_DEVICES=0 python chat.py --version="jdg900/M2SA-7B" --precision="fp16" --load_in_4bit
