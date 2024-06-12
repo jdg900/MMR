@@ -160,7 +160,7 @@ To train M<sup>2</sup>SA-7B and M<sup>2</sup>SA-13B, loading LLaVA's pre-trained
 
 
 #### Pre-trained SAM weights
-Download SAM ViT-H pre-trained weights from the [link](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth).
+Download SAM ViT-H pre-trained weights from the [link](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth). After downloading the pre-trained weights, place the weights under "vision_pretrained" folder.
 
 #### Training
 
