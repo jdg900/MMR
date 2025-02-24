@@ -254,6 +254,15 @@ deepspeed --include=localhost:0,1,2,3 --master_port=24999  train_ds.py \
 | LISA-Llama2-13B     | 22.1     | 35.2           | 19.4       | 29.7             | 27.2       | 41.6             |
 | **M<sup>2</sup>SA-Llama2-13B**         | **24.5** | **37.3**       | **21.9**   | **31.9**         | **28.5**   | **42.7**         |
 
+## Citation
+If you find this project useful in your research, please consider citing:
+```
+@inproceedings{jangmmr,
+  title={MMR: A Large-scale Benchmark Dataset for Multi-target and Multi-granularity Reasoning Segmentation},
+  author={Jang, Donggon and Cho, Yucheol and Lee, Suin and Kim, Taehyeon and Kim, Daeshik},
+  booktitle={The Thirteenth International Conference on Learning Representations}
+}
+```
 
 ## Acknowledgements
 This codebase ie built on [LISA](https://github.com/dvlab-research/LISA?tab=readme-ov-file), [LLaVA](https://github.com/haotian-liu/LLaVA), and [SAM](https://github.com/facebookresearch/segment-anything). We thank the authors for sharing their code. Their valuable work has greatly contributed to the development of our codebase.
