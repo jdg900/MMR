@@ -165,7 +165,7 @@ Download the total datasets from the above links, and organize them as follows.
 
 
 #### Pre-trained LLaVA weights
-To train M<sup>2</sup>SA-7B and M<sup>2</sup>SA-13B, loading LLaVA's pre-trained weights are required. For M<sup>2</sup>SA-7B we use LLaVA-Lightning-7B-v1-1 merged from `liuhaotian/LLaVA-Lightning-7B-delta-v1-1`, and for M<sup>2</sup>SA-13B, we use liuhaotian/llava-llama-2-13b-chat-lightning-preview.
+To train M<sup>2</sup>SA-7B and M<sup>2</sup>SA-13B, loading LLaVA's pre-trained weights are required. For M<sup>2</sup>SA-7B we use `LLaVA-Lightning-7B-v1-1` merged from `liuhaotian/LLaVA-Lightning-7B-delta-v1-1`, and for M<sup>2</sup>SA-13B, we use `liuhaotian/llava-llama-2-13b-chat-lightning-preview`.
 
 
 #### Pre-trained SAM weights
