@@ -213,6 +213,9 @@ CUDA_VISIBLE_DEVICES=0 python merge_lora_weights_and_save_hf_model.py \
   --save_path="M2SA-7B"
 ```
 
+### Pre-trained weights
+You can download [M<sup>2</sup>SA-7B](https://huggingface.co/jdg900/M2SA-7B) and [M<sup>2</sup>SA-13B](https://huggingface.co/jdg900/M2SA-13B) in huggingface.
+
 ### Validation
 ```
 deepspeed --include=localhost:0,1,2,3 --master_port=24999  train_ds.py \
